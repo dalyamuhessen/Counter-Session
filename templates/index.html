@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+</head>
+
+<body>
+    <h1>Dojo <span>Counter</span></h1>
+
+    <div class="card">
+
+        <div class="stats-row">
+            <div class="stat-box">
+                <div class="stat-val">{{ visits }}</div>
+                <div class="stat-label">Page Visits</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-val" style="color:#e94560">{{ counter }}</div>
+                <div class="stat-label">Counter Value</div>
+            </div>
+        </div>
+
+        <div class="btn-row">
+            <a href="/increment" class="btn btn-red">+2 Counter</a>
+            <a href="/reset" class="btn btn-blue">Reset Counter</a>
+            <a href="/destroy_session" class="btn btn-danger">Destroy Session</a>
+        </div>
+
+        <hr class="divider">
+
+        <div class="card-title">Increment by custom amount</div>
+        <form action="/set_increment" method="POST" class="inc-form">
+            <input type="number" name="amount" placeholder="Enter number..." min="1" required />
+            <button type="submit" class="btn btn-gray">Add</button>
+        </form>
+
+    </div>
+</body>
+
+</html>
